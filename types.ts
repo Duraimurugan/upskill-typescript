@@ -8,7 +8,7 @@ console.log(returnSomething1('super cool'));
 
 
 /**
- * When using types
+ * When using types - Union
  * Example 1: Basic version
  * Example 2: With type guards - typeof and instanceof
  */
@@ -30,5 +30,14 @@ let returnSomething2 = (something: Something) => {
     }
 };
 
+
+/**
+ * Only the common property will be accessible when using union type operators
+ */
 // returnSomething2(false);
 returnSomething2(['test', 'user']);
+
+type stuffAndThings = {cool: string, meh:string} | {cool:string, lame: string};
+let gimmeStuffs = (sat: stuffAndThings) => {
+    return sat.cool || sat.lame // IDE and TSC shoots up the error for the uncommon property
+}

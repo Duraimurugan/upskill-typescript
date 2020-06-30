@@ -1,3 +1,23 @@
+/**
+ * what is type script and basics
+ * @description Typescript is Javascript with static typing
+ * Compiler knows the variable type when typing
+ * TSC does not allow this and IDE start displaying the error
+ * IDE will warns us when trying to pass incorrect parameter type to a function
+ * TSC compiler infers the type
+ */
+
+let someString: string = 'abc';
+// someString = 1234;
+
+let coolFunction = (a: number, b: string) => a+b;
+console.log(coolFunction(1, '2')); // this will work
+// console.log(coolFunction(2, 2));   // but not this, IDE will start displaying the errors
+
+let string1 = 'somevalue';
+// string1 = [1,2,3];  // IDE and TSC will throw error
+
+
 type Salutation = {greeting: string, name: string};
 
 function greet({greeting, name}: Salutation): string {
